@@ -1,0 +1,19 @@
+header{
+    display: flex;
+    justify-content: space-between;
+}
+header div{
+    display: flex;
+    width: 175px;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 15px;
+}
+header div h1 {
+    display: flex;
+    margin-left: 5px;
+}
+
+.card{
+    width: 300px;
+}
