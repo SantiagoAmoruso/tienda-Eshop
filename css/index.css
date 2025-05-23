@@ -1,19 +1,33 @@
-header{
-    display: flex;
-    justify-content: space-between;
+.card {
+  width: 300px;
 }
-header div{
-    display: flex;
-    width: 175px;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 15px;
+.productos {
+  display: grid;
+  margin: 25px;
+  place-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
 }
-header div h1 {
-    display: flex;
-    margin-left: 5px;
+.card {
+  width: 100%;
+  height: auto;
+  transition: all 0.3s ease;
 }
-
-.card{
-    width: 300px;
+.card:hover {
+  transform: scale(1.05);
+}
+.card-title {
+  color: var(--primer-color);
+}
+.card-text {
+  color: var(--primer-color);
+}
+main {
+  position: relative;
+  min-height: 100vh;
+  margin-top: 22px;
+}
+main h2 {
+  font-size: 2em;
+  margin-left: 25px;
 }

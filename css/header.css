@@ -1,0 +1,84 @@
+@media screen and (min-width: 768px) {
+  header .menu-icon {
+    display: none;
+  }
+  header .opciones {
+    display: flex;
+  }
+}
+
+header {
+  display: flex;
+  padding: 15px;
+  background-color: var(--primer-color);
+  justify-content: space-between;
+  height: 100px;
+}
+.logo {
+  width: 45px;
+}
+header div {
+  display: flex;
+  width: 175px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+header div h1 {
+  color: var(--segundo-color);
+  font-size: 2em;
+}
+.opciones {
+  display: none;
+  width: 350px;
+}
+.opciones a {
+  text-align: center;
+  width: 120px;
+  font-size: 1.25em;
+  color: var(--segundo-color);
+  padding: 5px;
+  transition: all 0.3s ease;
+}
+.opciones a:hover {
+  scale: 1.1;
+}
+
+/* Menu hamburguesa */
+.menu {
+  display: none;
+  text-align: center;
+  width: 150px;
+  background-color: var(--primer-color);
+  position: absolute;
+  right: 0;
+  top: 100px;
+}
+.menu ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  font-size: 1.25em;
+  height: 115px;
+}
+.menu ul li {
+  color: var(--segundo-color);
+}
+.menu ul li a {
+  color: var(--segundo-color);
+  padding: 10px;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+input[type="checkbox"]:checked ~ .menu {
+  display: flex;
+  z-index: 10;
+}
+
+.menu-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+}
