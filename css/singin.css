@@ -1,6 +1,6 @@
 
 #body{
-    background-image: url(fondo.avif);
+  background-color: #000000;
 }
 section{
 display: flex;
