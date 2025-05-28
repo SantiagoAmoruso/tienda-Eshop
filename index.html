@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="/css/header.css" />
     <link rel="stylesheet" href="/css/footer.css" />
     <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="css/carrito.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -30,7 +31,29 @@
     <title>Eshop - Inicio</title>
   </head>
   <body>
-    <header></header>
+ <!-- carrito-->
+    <header>  
+      <button class="cart-button" onclick="toggleCart()">🛒</button>
+
+  <div id="cart" class="cart-sidebar">
+    <div class="cart-header">
+      <h2>Tu Carrito</h2>
+      <button class="close-btn" onclick="toggleCart()">×</button>
+    </div>
+    <div class="cart-items">
+      <div class="cart-item">
+        <p>Producto 1</p>
+        <p>$10.00</p>
+      </div>
+      <div class="cart-item">
+        <p>Producto 2</p>
+        <p>$15.00</p>
+      </div>
+    </div>
+  </div>
+  
+    </header>
+
     <main>
       <h2>Productos</h2>
       <hr />
@@ -124,5 +147,6 @@
     </main>
     <footer></footer>
     <script src="/java/script.js"></script>
+    <script src="java/carro.js"></script>
   </body>
 </html>
