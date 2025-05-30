@@ -1,3 +1,5 @@
+
+
 /* Botón del carrito */
     .cart-button {
       position: fixed;
@@ -14,6 +16,9 @@
 
     /* Sidebar del carrito */
     .cart-sidebar {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       position: fixed;
       top: 0;
       right: -300px;
@@ -44,6 +49,8 @@
     }
 
     .cart-items {
+      display: flex;
+      flex-direction: column;
       margin-top: 20px;
     }
 

@@ -31,16 +31,16 @@ header div h1 {
   display: none;
   width: 350px;
 }
-.opciones a {
+.opcioncitas {
   text-align: center;
   width: 120px;
   font-size: 1.25em;
   color: var(--segundo-color);
   padding: 5px;
   transition: all 0.3s ease;
-}
-.opciones a:hover {
-  scale: 1.1;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
 }
 
 /* Menu hamburguesa */
@@ -66,6 +66,11 @@ header div h1 {
 .menu ul li a {
   color: var(--segundo-color);
   padding: 10px;
+}
+.menu ul li button {
+  background-color: transparent;
+  color: var(--segundo-color);
+  border: 0;
 }
 
 input[type="checkbox"] {
