@@ -18,7 +18,7 @@
     .cart-sidebar {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       position: fixed;
       top: 0;
       right: -300px;
