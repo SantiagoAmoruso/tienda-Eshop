@@ -31,3 +31,26 @@ main h2 {
   font-size: 2em;
   margin-left: 25px;
 }
+.tituloArriba{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tituloArriba button{
+  margin-right: 25px;
+}
+main button{
+  background: transparent;
+  border: 1px solid rgba(128, 128, 128, 0.479);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+
+#form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 25px;
+}
