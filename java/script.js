@@ -37,24 +37,24 @@ header.innerHTML = `
                
                 <span>
                 <p>Producto 1</p> <p>x1</p>
-                <p>$10.00</p>
+                <p>$10.00</p> <button> <i class="fa-solid fa-trash"></i> </button>
                 </span>
 
             </div>
             <div class="cart-item">
              <span>
                 <p>Producto 2</p> <p>x2</p>
-                <p>$15.00</p>
+                <p>$15.00</p>  <button> <i class="fa-solid fa-trash"></i> </button>
                 
                 </span>
             </div>
+            
             <div class="cart-item">
-              <span><p>subototal </p> <p>$1000</p>  </span>
               <span><p> total</p> <p>$1200</p> </span>
             </div>
            
-            <div>
-            <a href="index.html">seguir comprando</a>
+            <div class="seguirencompra">
+            <a href="index.html">Seguir comprando</a>
             </div>
 
             </div>
