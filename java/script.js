@@ -21,7 +21,7 @@ header.innerHTML = `
                 <li><button>Favoritos</button></li>
             </ul>
         </nav>
-
+   
         <div class="opciones">
             <a href="singin.html" class="opcioncitas"><i class="fa-solid fa-arrow-right-to-bracket fa-xl"></i></i> Sign in</a>
             <a href="login.html" class="opcioncitas"><i class="fa-solid fa-user fa-lg"></i></i></i> Login</a>
@@ -36,22 +36,10 @@ header.innerHTML = `
             </div>
             <div class="cart-items">
             <div class="cart-item">
-               
-                <span>
-                <p>Producto 1</p> <p>x1</p>
-                <p>$10.00</p> <button> <i class="fa-solid fa-trash"></i> </button>
-                </span>
-
-            </div>
-            <div class="cart-item">
-             <span>
-                <p>Producto 2</p> <p>x2</p>
-                <p>$15.00</p>  <button> <i class="fa-solid fa-trash"></i> </button>
-                
-                </span>
+             
             </div>
             
-            <div class="cart-item">
+            <div class="cart-total">
               <span><p> total</p> <p>$1200</p> </span>
             </div>
            
