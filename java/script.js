@@ -18,7 +18,7 @@ header.innerHTML = `
                 <li><a href="singin.html">Sign in</a></li>
                 <li><a href="login.html">Login</a></li>
                 <li><button onclick="toggleCart()">Carrito</button></li>
-                <li><button>Favoritos</button></li>
+                <li><a href="favoritos.html"><button>Favoritos</button></a></li>
             </ul>
         </nav>
 
