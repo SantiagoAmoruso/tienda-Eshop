@@ -1,5 +1,10 @@
 .card {
   width: 300px;
+  cursor: pointer;
+}
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
 }
 .productos {
   display: grid;
@@ -13,14 +18,15 @@
   height: auto;
   transition: all 0.3s ease;
 }
-.card:hover {
-  transform: scale(1.05);
-}
 .card-title {
   color: var(--primer-color);
 }
 .card-text {
   color: var(--primer-color);
+}
+.btn-fav{
+  background-color: transparent;
+  border: none;
 }
 main {
   position: relative;
@@ -44,6 +50,10 @@ main button{
   border: 1px solid rgba(128, 128, 128, 0.479);
   border-radius: 5px;
   padding: 5px;
+}
+.actions {
+  display: flex;
+  justify-content: space-between;
 }
 
 
