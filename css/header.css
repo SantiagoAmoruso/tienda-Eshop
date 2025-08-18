@@ -1,4 +1,4 @@
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 968px) {
   header .menu-icon {
     display: none;
   }
@@ -8,10 +8,11 @@
 }
 
 header {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  width: 100%;
   padding: 15px;
   background-color: var(--primer-color);
-  justify-content: space-between;
   height: 100px;
 }
 .logo {
@@ -27,13 +28,14 @@ header div h1 {
   color: var(--segundo-color);
   font-size: 2em;
 }
+
 .opciones {
   display: none;
-  width: 350px;
+  width: auto;
 }
 .opcioncitas {
   text-align: center;
-  width: 120px;
+  min-width: 150px;
   font-size: 1.25em;
   color: var(--segundo-color);
   padding: 5px;
@@ -58,14 +60,14 @@ header div h1 {
   flex-direction: column;
   justify-content: space-evenly;
   font-size: 1.25em;
-  height: 115px;
+  min-height: 115px;
 }
 .menu ul li {
+  padding: 10px;
   color: var(--segundo-color);
 }
 .menu ul li a {
   color: var(--segundo-color);
-  padding: 10px;
 }
 .menu ul li button {
   background-color: transparent;
