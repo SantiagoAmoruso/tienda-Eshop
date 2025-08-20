@@ -6,12 +6,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //Mostrar carrito   
     const mostrarCarrito = () => {
-        let carrito = JSON.parse(localStorage.getItem("carrito"))
+        let carrito = JSON.parse(localStorage.getItem("cart"))
 
         // limpiarCarrito, eliminamos contenidos de los contenedores de item de productos y totales
-        contenedorProd = document.querySelector("#itemsCarrito")
+        contenedorProd = document.querySelector(".cart-item")
         contenedorProd.innerHTML = ""
-        contenedorTotal = document.querySelector("#total")
+        contenedorTotal = document.querySelector("cart-total")
         contenedorTotal.innerHTML = ""
 
         if (carrito) {

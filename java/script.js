@@ -40,7 +40,7 @@ header.innerHTML = `
             </div>
             
             <div class="cart-total">
-              <span><p> total</p> <p>$1200</p> </span>
+             
             </div>
            
             <div class="seguirencompra">
