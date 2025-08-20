@@ -26,7 +26,7 @@ const agregarAFavoritos = (item) => {
 const toggleBtnFavoritos = (item, iconoFavorito) => {
     // console.log(item, iconoFavorito)
     recuperarFavoritos()
-    if (iconoFavorito.classList.contains("fa-heart-circle-check")) {
+    if (iconoFavorito.classList.contains("fa-regular fa-star fa-xl")) {
         // console.log("hay que eliminar de favoritos")
         eliminarDeFavoritos(item.id)
     } else {
@@ -34,8 +34,8 @@ const toggleBtnFavoritos = (item, iconoFavorito) => {
         agregarAFavoritos(item)
     }
     //cambia icono favoritos
-    iconoFavorito.classList.toggle("fa-heart-circle-check");
-    iconoFavorito.classList.toggle("fa-heart")
+    iconoFavorito.classList.toggle("fa-regular fa-star fa-xl");
+    iconoFavorito.classList.toggle("fa-regular fa-star fa-xl")
 
 
 }

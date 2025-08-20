@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <p class="card-text"><small class="text-body-secondary">${item.price}</small></p>
                     <div class="actions">
                         <button class="btn-carrito">Agregar a carrito</button>
-                        <button class="btn-fav" onclick="this.classList.toggle('favorito')">
+                        <button class="favoritos btn-fav" onclick="this.classList.toggle('favorito')">
                             <i class="fa-regular fa-star fa-xl" style="color: #161616;"></i>
                         </button>
                     </div>
@@ -52,7 +52,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     icon.classList.remove('fa-solid')
                     icon.classList.add('fa-regular')
                 }
+
+                let favoritos = JSON.parse(localStorage.getItem("favoritos")) || []
+                favoritos.push(item)
+                localStorage.setItem("favoritos", JSON.stringify(favoritos))
+            
+             
             })
+
+
 
         })
     }
