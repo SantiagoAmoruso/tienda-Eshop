@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
             mostrarProduto(datos);
         } catch (error) {
             console.log(error);
+
         }
     }
 
@@ -22,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
             card.dataset.id = item.id;
             card.dataset.stock = item.stock;
 
+
             card.innerHTML = `
                 <img src="${item.img}" class="card-img-top" alt="${item.title}" />
                 <div class="card-body">
@@ -30,8 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     <p class="card-text"><small class="text-body-secondary">${item.price}</small></p>
                     <div class="actions">
                         <button class="btn-carrito">Agregar a carrito</button>
-                        <button class="btn-fav" onclick="this.classList.toggle('favorito')">
-                            <i class="fa-regular fa-star fa-xl" style="color: #161616;"></i>
+                        <button class="btn-fav">
+                            <i class="${iconoClase} fa-star fa-xl" style="color: #161616;"></i>
                         </button>
                     </div>
                 </div>
