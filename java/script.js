@@ -18,7 +18,7 @@ header.innerHTML = `
                 <li><a href="singin.html">Sign in</a></li>
                 <li><a href="login.html">Login</a></li>
                 <li><button onclick="toggleCart()">Carrito</button></li>
-                <li><button>Favoritos</button></li>
+                <li><a href="favoritos.html"><button>Favoritos</button></a></li>
             </ul>
         </nav>
 
@@ -26,7 +26,7 @@ header.innerHTML = `
             <a href="singin.html" class="opcioncitas"><i class="fa-solid fa-arrow-right-to-bracket fa-xl"></i></i> Sign in</a>
             <a href="login.html" class="opcioncitas"><i class="fa-solid fa-user fa-lg"></i></i></i> Login</a>
             <button class="opcioncitas" onclick="toggleCart()"><i class="fa-solid fa-cart-shopping fa-lg"></i> Carrito</button>
-            <button class="opcioncitas"><i class="fa-solid fa-star fa-lg"></i> Favoritos</button>
+            <a href="favoritos.html" class="opcioncitas"><i class="fa-solid fa-star fa-lg"></i> Favoritos</a>
         </div>
 
         <div id="cart" class="cart-sidebar">

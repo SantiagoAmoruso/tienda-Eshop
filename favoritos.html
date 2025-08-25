@@ -14,6 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    
     <link rel="stylesheet" href="css/estilos.css" />
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/footer.css" />
@@ -26,17 +27,20 @@
     <!-- carrito-->
     <header></header>
 
-    <main>
-      <h2>Productos</h2>
-      <hr />
-      <div class="productos">
-        
-      </div>
-    </main>
+    <main class="container py-4">
+    <h1 class="productos">Favoritos</h1>
+    <hr>
+    <!-- Contenedor que usa favoritos.js -->
+    <section class="favoritos productos">
+      <!-- Aquí se pintan las cards de favoritos -->
+    </section>
+  </main>
+
     <footer></footer>
-    <script src="java/productos.js"></script>
-    <script src="java/modulosFavoritos.js"></script>
-    <script src="java/script.js"></script>
-    <script src="java/carro.js"></script>
+    <script defer src="./java/modulosFavoritos.js"></script>
+    <script defer src="./java/carro.js"></script>
+    <script defer src="./java/favoritos.js"></script>
+    <script defer src="./java/script.js"></script>
+
   </body>
 </html>
