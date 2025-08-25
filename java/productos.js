@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // --- botón carrito (ejemplo) ---
             card.querySelector('.btn-carrito').addEventListener('click', () => {
-                agregarAlCarrito(item, 1) // tu función de carrito
+                agregarAlCarrito(item, 1) // función de carrito
             })
 
             // --- botón favoritos ---
