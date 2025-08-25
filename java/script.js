@@ -26,7 +26,7 @@ header.innerHTML = `
             <a href="singin.html" class="opcioncitas"><i class="fa-solid fa-arrow-right-to-bracket fa-xl"></i></i> Sign in</a>
             <a href="login.html" class="opcioncitas"><i class="fa-solid fa-user fa-lg"></i></i></i> Login</a>
             <button id="abrir" class="opcioncitas" onclick="toggleCart()"><i class="fa-solid fa-cart-shopping fa-lg"></i> Carrito</button>
-            <button class="opcioncitas"><i class="fa-solid fa-star fa-lg"></i> Favoritos</button>
+            <button class="opcioncitas"><a href="favoritos.html" style="color: white;"><i class="fa-solid fa-star fa-lg"></i> Favoritos</a></button>
 
         </div>
 
