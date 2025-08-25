@@ -1,31 +1,29 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const endpoint = '../data/datos.json'
+    const endpoint = '../data/datos.json';
 
     const getProductos = async () => {
         try {
-            res = await fetch(endpoint)
-            datos = await res.json()
-            mostrarProduto(datos)
-        } catch (error){
-            console.log(error)
+            const res = await fetch(endpoint);
+            const datos = await res.json();
+            mostrarProduto(datos);
+        } catch (error) {
+            console.log(error);
         }
     }
-    
-    getProductos()
+
+    getProductos();
 
     const mostrarProduto = (datos) => {
-        const productos = document.querySelector('.productos')
+        const productos = document.querySelector('.productos');
         datos.forEach(item => {
-            const card = document.createElement('div')
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.dataset.id = item.id;
+            card.dataset.stock = item.stock;
 
-            card.className = 'card'
             card.innerHTML = `
-                <img
-                    src="${item.img}"
-                    class="card-img-top"
-                    alt="${item.title}"
-                />
+                <img src="${item.img}" class="card-img-top" alt="${item.title}" />
                 <div class="card-body">
                     <h5 class="card-title">${item.title}</h5>
                     <p class="card-text">${item.desc}</p>
@@ -37,26 +35,23 @@ document.addEventListener("DOMContentLoaded", () => {
                         </button>
                     </div>
                 </div>
-            `
-            productos.appendChild(card)
+            `;
+            productos.appendChild(card);
 
-            const btnCarrito = card.querySelector('.btn-carrito')
+            const btnCarrito = card.querySelector('.btn-carrito');
+            btnCarrito.addEventListener('click', () => {
+                agregarAlCarrito(item, 1); // agrega 1 unidad
+                mostrarCarrito();          // refresca el sidebar
+            });
 
-            const btnFav = card.querySelector('.btn-fav')
+            const btnFav = card.querySelector('.btn-fav');
             btnFav.addEventListener('click', () => {
-                const icon = btnFav.querySelector('i')
-                if (icon.classList.contains('fa-regular')) {
-                    icon.classList.remove('fa-regular')
-                    icon.classList.add('fa-solid')
-                } else {
-                    icon.classList.remove('fa-solid')
-                    icon.classList.add('fa-regular')
-                }
-            })
-
-        })
+                const icon = btnFav.querySelector('i');
+                icon.classList.toggle('fa-regular');
+                icon.classList.toggle('fa-solid');
+            });
+        });
     }
-})
-
+});
 
 

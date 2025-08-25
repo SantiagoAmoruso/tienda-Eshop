@@ -1,104 +1,94 @@
-function toggleCart() {
-      document.getElementById('cart').classList.toggle('active');
-    }
-    
+// Hacer toggleCart accesible desde HTML
+window.toggleCart = () => {
+    document.getElementById('cart').classList.toggle('active');
+};
+
 document.addEventListener("DOMContentLoaded", () => {
 
-    //Mostrar carrito   
     const mostrarCarrito = () => {
-        let carrito = JSON.parse(localStorage.getItem("cart"))
+        let carrito = JSON.parse(localStorage.getItem("cart")) || [];
 
-        // limpiarCarrito, eliminamos contenidos de los contenedores de item de productos y totales
-        contenedorProd = document.querySelector(".cart-item")
-        contenedorProd.innerHTML = ""
-        contenedorTotal = document.querySelector("cart-total")
-        contenedorTotal.innerHTML = ""
+        let contenedorProd = document.querySelector(".cart-items");
+        contenedorProd.innerHTML = "";
+        let contenedorTotal = document.querySelector(".cart-total");
+        contenedorTotal.innerHTML = "";
 
-        if (carrito) {
-            // console.log(carrito)
+        if (carrito.length > 0) {
             let total = 0;
 
             carrito.forEach(item => {
-                // console.log(item)
-                const card = document.createElement("div")
-                card.className = "prodCarrito"
+                const card = document.createElement("div");
+                card.className = "prodCarrito";
                 card.innerHTML = `
-                        <img src="images/productos/${item.image}" alt="">
-                        <div class="detalle">
-                            <button id="eliminarProd"><i class="fa-solid fa-trash-can"></i></button>
-                            <p>${item.title}</p>
-                            <div class="agregar">
-                                <div class="amount">
-                                    <button class="restar" id="restar"><i class="fa-solid fa-square-minus"></i></button>
-                                    <input type="number" name="cant" min="1" max=${parseInt(item.stock)} value="${item.amount}">
-                                    <button class="sumar" id="sumar"><i class="fa-solid fa-square-plus"></i></button>
-                                </div>
-                                <div>
-                                    <p class="subtotal">$${item.price} c/u</p>
-                                    <p class="precio">$${item.amount * item.price}</p>
-                                </div>
+                    <img src="${item.img}" alt="">
+                    <div class="detalle">
+                        <button class="eliminarProd"><i class="fa-solid fa-trash-can"></i></button>
+                        <p>${item.title}</p>
+                        <div class="agregar">
+                            <div class="amount">
+                                <button class="restar"><i class="fa-solid fa-square-minus"></i></button>
+                                <input type="number" name="cant" min="1" max="${item.stock}" value="${item.amount}">
+                                <button class="sumar"><i class="fa-solid fa-square-plus"></i></button>
                             </div>
-                        </div>`
-                total = total + (item.amount * item.price);
-
-                //Agrego el producto al contenedor
+                            <div>
+                                <p class="subtotal">$${item.price.toFixed(2)} c/u</p>
+                                <p class="precio">$${(item.amount * item.price).toFixed(2)}</p>
+                            </div>
+                        </div>
+                    </div>`;
                 contenedorProd.appendChild(card);
 
-                //eliminar producto
-                card.querySelector("#eliminarProd").onclick = () => {
-                    eliminarProducto(item.id)
-                    mostrarCarrito()
-                }
+                total += item.amount * item.price;
 
-                //sumar 1 a la cantidad
-                card.querySelector("#sumar").onclick = () => {
-                    item.amount++
-                    modificarCantidad(item.amount, item.stock, item.id)
-                    mostrarCarrito()
-                }
+                card.querySelector(".eliminarProd").onclick = () => {
+                    eliminarProducto(item.id);
+                    mostrarCarrito();
+                };
 
-                //restar 1 a la cantidad
-                card.querySelector("#restar").onclick = () => {
-                    item.amount--                  
-                    modificarCantidad(item.amount, item.stock, item.id)
-                    mostrarCarrito()
-                }
-
-                //leer cambios campo cantidad
-                card.querySelector('[name="cant"]').onchange = () => {
-                    const cant = parseInt(card.querySelector('[name="cant"]').value)
-                    modificarCantidad(cant, item.stock, item.id)
-                    mostrarCarrito()
+                card.querySelector(".sumar").onclick = () => {
+                    if (item.amount < item.stock) {
+                        item.amount++;
+                        modificarCantidad(item.amount, item.stock, item.id);
+                        mostrarCarrito();
                     }
+                };
 
-                });
+                card.querySelector(".restar").onclick = () => {
+                    if (item.amount > 1) {
+                        item.amount--;
+                        modificarCantidad(item.amount, item.stock, item.id);
+                        mostrarCarrito();
+                    }
+                };
+
+                card.querySelector('[name="cant"]').onchange = () => {
+                    const cant = parseInt(card.querySelector('[name="cant"]').value);
+                    modificarCantidad(cant, item.stock, item.id);
+                    mostrarCarrito();
+                };
+            });
 
             contenedorTotal.innerHTML = `
                 <div class="total">
                     <p>TOTAL</p>
-                    <p class="precio">$${total}</p>
+                    <p class="precio">$${total.toFixed(2)}</p>
                 </div>
-
                 <button class="comprar" id="finalizarCompra">Comprar Ahora</button>
-                <button class="vaciar" id="vaciar">Vaciar Carrito</button>`
+                <button class="vaciar" id="vaciar">Vaciar Carrito</button>`;
 
-
-            //vaciar carrito
             document.querySelector("#vaciar").onclick = () => {
-                vaciarCarrito()
-                mostrarCarrito()
-            }
+                vaciarCarrito();
+                mostrarCarrito();
+            };
 
-            //Finalizar compra
             document.querySelector("#finalizarCompra").onclick = () => {
-                finalizarCompra()
-            }
-
+                finalizarCompra();
+            };
         } else {
-            mostrarMensaje("Carrito Vacio")
+            contenedorProd.innerHTML = "<p>Carrito vacío</p>";
         }
-    }
+    };
 
-    mostrarCarrito()
-
-})
+    mostrarCarrito();
+    window.mostrarCarrito = mostrarCarrito; // también global para otros scripts
+});
