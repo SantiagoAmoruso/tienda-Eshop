@@ -1,28 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const endpoint = '../data/datos.json'
+
+    const endpoint = '../data/datos.json';
 
     const getProductos = async () => {
         try {
-            let res = await fetch(endpoint)
-            let datos = await res.json()
-            mostrarProductos(datos)
-        } catch (error){
-            console.log(error)
+            const res = await fetch(endpoint);
+            const datos = await res.json();
+            mostrarProduto(datos);
+        } catch (error) {
+            console.log(error);
+
         }
     }
-    
-    getProductos()
 
-    const mostrarProductos = (datos) => {
-        const productos = document.querySelector('.productos')
-        productos.innerHTML = ""
+    getProductos();
 
+    const mostrarProduto = (datos) => {
+        const productos = document.querySelector('.productos');
         datos.forEach(item => {
-            const card = document.createElement('div')
-            card.className = 'card'
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.dataset.id = item.id;
+            card.dataset.stock = item.stock;
 
-            // Icono depende si está en favoritos
-            const iconoClase = esFavorito(item.id) ? "fa-solid" : "fa-regular"
 
             card.innerHTML = `
                 <img src="${item.img}" class="card-img-top" alt="${item.title}" />
@@ -37,27 +37,23 @@ document.addEventListener("DOMContentLoaded", () => {
                         </button>
                     </div>
                 </div>
-            `
-            productos.appendChild(card)
+            `;
+            productos.appendChild(card);
 
-            // --- botón carrito (ejemplo) ---
-            card.querySelector('.btn-carrito').addEventListener('click', () => {
-                agregarAlCarrito(item, 1) // función de carrito
-            })
+            const btnCarrito = card.querySelector('.btn-carrito');
+            btnCarrito.addEventListener('click', () => {
+                agregarAlCarrito(item, 1); // agrega 1 unidad
+                mostrarCarrito();          // refresca el sidebar
+            });
 
-            // --- botón favoritos ---
-            const btnFav = card.querySelector('.btn-fav')
+            const btnFav = card.querySelector('.btn-fav');
             btnFav.addEventListener('click', () => {
-                if (esFavorito(item.id)) {
-                    eliminarDeFavoritos(item.id)
-                } else {
-                    agregarAFavoritos(item)
-                }
-                // refrescar icono
-                const icon = btnFav.querySelector('i')
-                icon.classList.toggle('fa-solid')
-                icon.classList.toggle('fa-regular')
-            })
-        })
+                const icon = btnFav.querySelector('i');
+                icon.classList.toggle('fa-regular');
+                icon.classList.toggle('fa-solid');
+            });
+        });
     }
-})
+});
+
+
