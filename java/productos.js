@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
             card.dataset.id = item.id;
             card.dataset.stock = item.stock;
 
+            const iconoClase = esFavorito(item.id) ? "fa-solid" : "fa-regular"
 
             card.innerHTML = `
                 <img src="${item.img}" class="card-img-top" alt="${item.title}" />
@@ -46,12 +47,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 mostrarCarrito();          // refresca el sidebar
             });
 
-            const btnFav = card.querySelector('.btn-fav');
+            const btnFav = card.querySelector('.btn-fav')
             btnFav.addEventListener('click', () => {
-                const icon = btnFav.querySelector('i');
-                icon.classList.toggle('fa-regular');
-                icon.classList.toggle('fa-solid');
-            });
+                if (esFavorito(item.id)) {
+                    eliminarDeFavoritos(item.id)
+                } else {
+                    agregarAFavoritos(item)
+                }
+                // refrescar icono
+                const icon = btnFav.querySelector('i')
+                icon.classList.toggle('fa-solid')
+                icon.classList.toggle('fa-regular')
+            })
         });
     }
 });
