@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const endpoint = '../data/datos.json';
+    const endpoint = './data/datos.json';
 
     const getProductos = async () => {
         try {
